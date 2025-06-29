@@ -23,5 +23,5 @@ git fetch origin
 git checkout --文件名		//丢弃某个文件的修改
 git reset HEAD  文件名		//将文件移出暂存区
 git revert (commit_id)		
-
+ >>>
 
