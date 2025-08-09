@@ -1,19 +1,2 @@
-# 编译生成文件
-*.o
-*.d
-*.elf
-*.hex
-*.map
-*.bin
-
-# IDE 文件（Keil/STM32CubeIDE/VSCode）
-*.uvprojx
-*.uvoptx
-Debug/
-Release/
-.vscode/
-.idea/
-
-# 系统文件
-.DS_Store
-Thumbs.db
+*.exe
+*.txt
