@@ -17,7 +17,7 @@ do{
     h=m/H;
     m=m-H*h;
     printf("%dh%dmin\n",h,m);
-}while (i=1);
+}while (i==1);
 
 return 0;
 }
