@@ -31,3 +31,5 @@ int main(void)
     printf("I knew I could do it!\n");
     return 0;
 }
+//问题在于无法覆盖到1~100中的所有数，
+//而且但交互较多时，i值归零，guess值就不变了。
