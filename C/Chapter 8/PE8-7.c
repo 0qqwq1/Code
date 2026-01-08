@@ -13,19 +13,9 @@
 #define WAGE_multiplier_4 11.20
 char get_choice(void);
 char get_first(void);
-int get_int(void);
+double get_float(void);
 char get_choice(void);
-void count(void);
-double judgement(void);
 int main(void)
-{
-    count();
-    printf("Bye.\n");
-    
-    return 0;
-}
-
-void count(void)
 {
     int hour = 0, choice = 0;
     double total_payroll = 0;
@@ -35,12 +25,21 @@ void count(void)
 
     while ((choice = get_choice()) != 'q')
     {
+    switch (choice)
+    {
+        case 'a': multiply = WAGE_multiplier_1; break;
+        case 'b': multiply = WAGE_multiplier_2; break;
+        case 'c': multiply = WAGE_multiplier_3; break;
+        case 'd': multiply = WAGE_multiplier_4; break;
+        default: printf("Program error!\n"); break;
+    }
     printf("How many hours do you work per week?\n");
-    hour = get_int();
+    hour = get_float();
     while (getchar() != '\n')
         continue;
     if (hour > HOURS_limit)
         hour = 1.5 * hour;
+        //printf("h=%.2lf", hour);得到的值为0，但h是有值的，为什么
     total_payroll = hour * multiply;
     if (total_payroll > 450)
         tax = TAX_1 + TAX_2 + (total_payroll - TAX_lim_2) * TAX_rate_450;
@@ -51,25 +50,14 @@ void count(void)
     net_income = total_payroll - tax;
     printf("Your total salary is $%.2f,\n", total_payroll);
     printf("with taxes amounting to $%.2f,\n", tax);
-    printf("resulting in a net income of $%.2f.", net_income);
-}}
-
-double judgement(void)
-{
-    int choice;
-    double multiply;
-
-        switch (choice)
-    {
-        case 'a': multiply = WAGE_multiplier_1; break;
-        case 'b': multiply = WAGE_multiplier_2; break;
-        case 'c': multiply = WAGE_multiplier_3; break;
-        case 'd': multiply = WAGE_multiplier_4; break;
-        default: printf("Program error!\n"); break;
+    printf("resulting in a net income of $%.2f.\n", net_income);
     }
     
-    return multiply;
-}
+    printf("Bye.\n");
+    
+    return 0;
+    }
+
 
 char get_choice(void)
 {
@@ -82,7 +70,6 @@ char get_choice(void)
     printf("q) quit\n");
     printf("*****************************************************************\n");
     ch = get_first();
-    judgement();
     while ((ch < 'a' || ch > 'd') && ch != 'q')
     {
         printf("Please respond with a, b, c, d, or q.\n");
@@ -103,12 +90,12 @@ char get_first(void)
         return ch;
 }
 
-int get_int(void)
+double get_float(void)
 {
-    int input;
+    double input;
     char ch;
 
-    while (scanf("%f", &input) != 1)
+    while (scanf("%lf", &input) != 1)
     {
         while ((ch = getchar()) != '\n')
             putchar(ch);
