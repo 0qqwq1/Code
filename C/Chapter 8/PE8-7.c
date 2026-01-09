@@ -17,7 +17,8 @@ double get_float(void);
 char get_choice(void);
 int main(void)
 {
-    int hour = 0, choice = 0;
+    int choice = 0;
+    double hour = 0;
     double total_payroll = 0;
     double tax = 0;
     double net_income = 0;
@@ -39,7 +40,6 @@ int main(void)
         continue;
     if (hour > HOURS_limit)
         hour = 1.5 * hour;
-        //printf("h=%.2lf", hour);得到的值为0，但h是有值的，为什么
     total_payroll = hour * multiply;
     if (total_payroll > 450)
         tax = TAX_1 + TAX_2 + (total_payroll - TAX_lim_2) * TAX_rate_450;
