@@ -33,7 +33,7 @@ double power(double n, int p)
     else if (p < 0)
         pow = (1 / n) * power(n, p + 1);
     else 
-        pow = 1; 
+        pow = 1; //因为是pow = n * pow
 
     if (n == 0)
         return 0;
