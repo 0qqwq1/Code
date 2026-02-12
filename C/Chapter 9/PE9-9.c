@@ -29,7 +29,7 @@ double power(double n, int p)
     double pow;
 
     if (p > 0)
-        pow = n * power(n, p - 1);
+        pow = n * power(n, p - 1);//不能用--p,++p
     else if (p < 0)
         pow = (1 / n) * power(n, p + 1);
     else 
