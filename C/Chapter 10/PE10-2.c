@@ -17,7 +17,7 @@ int main(void)
     return 0;
 }
 
-void copy_arr(double target1[], double source[], int n)
+void copy_arr(double target1[], double source[], int n)//数组表示法，target1[i] = source[i];
 {
     for (int i = 0; i < n; i++)
     {
@@ -27,7 +27,8 @@ void copy_arr(double target1[], double source[], int n)
     printf("\n");
 }
 
-void copy_ptr(double * target2, double * source, int n)
+void copy_ptr(double * target2, double * source, int n)//带索引的指针法 *(target + i) = *(source + i);
+//即有元素个数，应用for循环
 {
     for (int i = 0; i < n; i++)
     {
@@ -52,7 +53,8 @@ void copy_ptr(double * target2, double * source, int n)
 }
 */
 
-void copy_ptrs(double * target3, double * start, double * end)
+void copy_ptrs(double * target3, double * start, double * end)//移动指针法 *target++ = *source++
+//有初始和末尾地址，应用while循环
 {
     double *original_target = target3;  // 保存起始位置用于打印
     
