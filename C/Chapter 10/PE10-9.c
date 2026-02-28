@@ -18,7 +18,7 @@ int main(void)
     return 0;
 }
 
-void copy(int rows, int cols, double copy[rows][cols])
+void copy(int rows, int cols, double copy[rows][cols]) //copy_array
 {
     double target[rows][cols];
 
@@ -32,7 +32,7 @@ void copy(int rows, int cols, double copy[rows][cols])
     put_res(rows, cols, target);
 }
 
-void put_res(int N, int M, double result[N][M])
+void put_res(int N, int M, double result[N][M]) //show_array
 {
     for (int i = 0; i < N; i++)
     {
