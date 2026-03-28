@@ -1,20 +1,21 @@
 #include <stdio.h>
 #define SIZE 20
-void get_n_words(char input[], int n);
+int get_n_words(char input[], int n);
 int main(void)
 {
     char input[SIZE];
+    int n;
 
     puts("Please enter:");
-    get_n_words(input, SIZE);
+    n = get_n_words(input, SIZE);
     puts("Result:");
-    for (int i = 0; i < SIZE; i++)
-        putchar(input[i]);
+    for (int i = 0; i < n; i++)
+        printf("%c", input[i]);
 
     return 0;
 }
 
-void get_n_words(char input[], int n)
+int get_n_words(char input[], int n)
 {
     int i = 0;
     char ch;
@@ -31,9 +32,8 @@ void get_n_words(char input[], int n)
             break;
     }
 
-    if (i == n)
-    {
-        while ((ch = getchar()) != '\n' && ch != EOF)
+        while (getchar() != '\n')
             continue;
-    }
+
+            return i;
 }
