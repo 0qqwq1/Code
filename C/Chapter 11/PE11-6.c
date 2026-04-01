@@ -1,11 +1,10 @@
 #include <stdio.h> 
 #define SIZE 10
-char * find_char(const char * input, char ch);
+int is_within(const char * ptr, char ch);
 
 int main(void)
 {
     char words[SIZE];
-    char  * address;
     char ch;
     int i;
 
@@ -27,11 +26,11 @@ int main(void)
         else    
             while (getchar() != '\n')
                 continue;
-        address = find_char(words, ch);
-        if(address != NULL)
-            printf("The address of the character '%c' you are looking for is %p\n", ch, address);
+
+        if(is_within(words, ch))
+            puts("The character you are looking for can be found!");
         else
-            puts("The character you are looking for cannot be found");
+            puts("The character you are looking for cannot be found!");
         puts("Enter strings (empty line to quit):");
     }
     puts("DONE.");
@@ -39,20 +38,17 @@ int main(void)
 }
 
 
-char * find_char(const char * input, char ch)
+int is_within(const char * ptr, char ch)
 {
     int i = 0;
 
-    while (*(input + i) != '\0')
-        if (*(input + i) == ch)
-            return (char *)(input + i);
-        else
-            i++;
-
     if (ch == '\0')
-        return (char *)(input + i);        
-
-    return NULL;
+        return 1;
+    
+    while (*(ptr + i) != '\0')
+        if (*(ptr + i) == ch)
+            return 1;
+        else 
+            i++;
+    return 0;
 }
-
-
